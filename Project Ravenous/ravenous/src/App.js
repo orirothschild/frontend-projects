@@ -5,7 +5,8 @@ import BusinessList from './components/BusinessList/BusinessList';
 
 const business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
-  name: 'Oris Pizzeria',
+  father:'danny',
+  name: 'Oris burger',
   address: '1010 Paddington Way',
   city: 'Flavortown',
   state: 'NY',
@@ -16,7 +17,7 @@ const business = {
   reviewCount: 90
 };
 
-const businesses = [business,business,business,business,business];
+const businesses = [business,business,business,business,business,business,business,business];
 class App extends React.Component {
   render(){
     return (
