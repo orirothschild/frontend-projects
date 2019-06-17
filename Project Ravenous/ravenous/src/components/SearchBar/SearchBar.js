@@ -9,7 +9,7 @@ class SearchBar extends React.Component{
       term:'',
       location:'',
       sortBy:'best_match'
-    }
+    };
 
     this.sortByOptions = {
         'Best Match': 'best_match',
@@ -46,7 +46,7 @@ class SearchBar extends React.Component{
     if(this.state.sortBy === sortByOption){
       return 'active';
     }
-    return this.handleSortByChange;
+    return '';
 
   }
     renderSortByOptions(){
