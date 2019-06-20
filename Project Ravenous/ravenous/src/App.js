@@ -24,6 +24,7 @@ class App extends React.Component {
     console.log(`searching with ${term} ${location} ${sortBy}`);
 
   }
+  
   render(){
     return (
       <div className="App">
