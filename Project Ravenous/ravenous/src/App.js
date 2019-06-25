@@ -2,27 +2,23 @@ import React from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import BusinessList from './components/BusinessList/BusinessList';
+import {Yelp} from './util/Yelp';
 
-const business = {
-  imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
-  father:'danny',
-  name: 'Oris burger',
-  address: '1010 Paddington Way',
-  city: 'Flavortown',
-  state: 'NY',
-  zipCode: '10101',
-  category: 'Italian',
-  rating: 4.5,
-  rateType: 'oriScale',
-  reviewCount: 90
-};
-
-const businesses = [business,business,business,business,business,business,business,business];
 class App extends React.Component {
 
+  constructor (props){
+    super(props);
+    this.state = {
+      businesses : []
+    }
+    this.searchYelp = this.searchYelp.bind(this);
+  }
   searchYelp(term,location,sortBy){
-    console.log(`searching with ${term} ${location} ${sortBy}`);
-
+    Yelp.search(term,location,sortBy).then(business => {
+      this.setState({
+        businesses : business}
+        );
+    })
   }
   
   render(){
@@ -30,7 +26,7 @@ class App extends React.Component {
       <div className="App">
         <h1> Ori Yelp website</h1>
         <SearchBar searchYelp={this.searchYelp}/>
-        <BusinessList businesses={businesses}/>
+        <BusinessList businesses={this.state.businesses}/>
       </div>
     );
   }
