@@ -14,11 +14,12 @@ class TrackList extends React.Component{
       }
       
       render(){
-        <div className="TrackList">
-            this.props.Track.map(track => <Track key={this.props.track.id} trackvariables={this.props.track}/>
-            })
-    </div>
-      }
+        return (  
+            <div className="TrackList">
+                {this.props.tracks && this.props.tracks.map(track => <Track key={track.id} track={track} onAdd = {this.props.onAdd}/>)}
+        </div>
+        )
+    }
 }
 
 export default TrackList;

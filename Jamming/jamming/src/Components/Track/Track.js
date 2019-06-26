@@ -1,12 +1,15 @@
 import React from 'react';
 import './Track.css';
 
-const {track} = this.props;
 class Track extends React.Component{
     constructor(props){
         super(props);
         this.state = {};
-        
+        this.addTrack = this.addTrack.bind(this);
+    }
+
+    addTrack(){
+        this.props.onAdd(this.props.track);
     }
     
     renderAction() {
@@ -19,14 +22,17 @@ class Track extends React.Component{
     }
     
     render(){
+        const {track} = this.props;
+        return (  
         <div className="Track">
         <div className="Track-information">
           <h3>{track.name}</h3>
           <p>{track.artist} | {track.album}</p>
         </div>
-        <button className="Track-action"><!-- + or - will go here --></button>
+        <button className="Track-action" onClick={this.addTrack}>+</button>
       </div>
-      }
+        )
+    }
 }
 
 export default Track;
