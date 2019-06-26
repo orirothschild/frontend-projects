@@ -7,7 +7,9 @@ import SearchResults from '../../Components'
 class App extends React.Component {
   constructor (props){
     super(props);
-    this.state = {};
+    this.state = {
+      SearchResults : []
+    };
   }
 
   render(){
@@ -15,7 +17,10 @@ class App extends React.Component {
     <div>
     <h1>Ja<span className="highlight">mmm</span>ing</h1>
     <div className="App">
+      <SearchBar SearchResults={this.state.SearchResults}/>
       <div className="App-playlist">
+        <SearchResults/>
+        <Playlist/>
       </div>
     </div>
   </div>
