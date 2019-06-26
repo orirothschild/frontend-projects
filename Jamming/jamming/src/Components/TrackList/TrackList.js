@@ -10,12 +10,13 @@ class TrackList extends React.Component{
       }
 
       renderAction(){
-          
+
       }
       
       render(){
         <div className="TrackList">
-
+            this.props.Track.map(track => <Track key={this.props.track.id} trackvariables={this.props.track}/>
+            })
     </div>
       }
 }
