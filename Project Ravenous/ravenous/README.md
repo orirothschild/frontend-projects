@@ -1,3 +1,5 @@
+Project Ravenous a Freelance project to create a website implementing Yelps Restful Api
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
