@@ -1,3 +1,5 @@
+Jammming A Freelance project to create a playlist implementing Spotify's Restful Api
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
