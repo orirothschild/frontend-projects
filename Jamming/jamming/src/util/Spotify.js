@@ -54,7 +54,7 @@ let Spotify = {
     }
 
     let accessToken = Spotify.getAccessToken();
-    let headers = { Authorization: `Bearer ${accessToken}` };
+    let headers = { Authorization: `Bearer ${accessToken}`};
     let userId = undefined;
 
     Spotify.getUserId(headers)

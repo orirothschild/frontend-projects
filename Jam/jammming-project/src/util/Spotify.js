@@ -1,5 +1,5 @@
 const clientId = '81771d2ed3b84e1caa94f23f1a156710'; // Insert client ID here.
-const redirectUri = 'http://localhost:3000/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
+const redirectUri = 'http://ori-jam.surge.sh/'; // Have to add this to your accepted Spotify redirect URIs on the Spotify API.
 let accessToken;
 
 const Spotify = {
