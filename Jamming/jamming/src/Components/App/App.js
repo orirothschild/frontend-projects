@@ -11,14 +11,6 @@ class App extends React.Component {
       searchResults: [],
       playlistName: 'My playlist',
       playlistTracks: [
-       { name:'ori',
-        artist:'man',
-        album: 'oriman'
-      },
-      { name:'danny ',
-        artist:'rothschild',
-        album: 'dannyrothschild'
-      }
       ]
     }
 
