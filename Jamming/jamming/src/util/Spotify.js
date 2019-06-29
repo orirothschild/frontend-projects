@@ -1,5 +1,5 @@
 const CLIENT_ID = '7060b32ead31471081e8d692905725dd';
-const REDIRECT_URI = 'http://localhost:3000/';
+const REDIRECT_URI = 'http://easy-market.surge.sh/';
 let accessToken = undefined;
 let expiresIn = undefined;
 let spotifyURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
