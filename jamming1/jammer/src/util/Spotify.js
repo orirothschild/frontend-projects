@@ -1,5 +1,5 @@
-const clientId = '81771d2ed3b84e1caa94f23f1a156710';
-const redirectUri = 'http://localhost:3000/';
+const clientId = '53759af1d6444beb822b72e84720a6e4';
+const redirectUri = "http://localhost:3000/";
 const spotifyUrl = `https://accounts.spotify.com/authorize?response_type=token&scope=playlist-modify-public&client_id=${clientId}&redirect_uri=${redirectUri}`;
 let accessToken = undefined;
 let expiresIn = undefined;
@@ -16,17 +16,16 @@ const Spotify = {
       expiresIn = urlExpiresIn[1];
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
       window.history.pushState('Access Token', null, '/');
-    } /*else {
+    } else {
       window.location = spotifyUrl;
-    }*/
+    }
   },
 
   search(term) {
-    const url = "https://api.spotify.com/v1/search?q=abba&type=track&market=US"
-    const searchUrl = `https://api.spotify.com/v1/search?q=${term.replace(' ', '%20')}&type=track`;
-    return fetch(url, {
+    const searchUrl = `https://api.spotify.com/v1/search?type=track&q=${term.replace(' ', '%20')}`;
+    return fetch(searchUrl, {
         headers: {
-          Authorization: `Bearer ${this.getAccessToken()}`
+          Authorization: `Bearer ${accessToken}`
         }
       })
       .then(response => response.json())
@@ -48,7 +47,7 @@ const Spotify = {
     if (!name || !trackUris || trackUris.length === 0) return;
     const userUrl = 'https://api.spotify.com/v1/me';
     const headers = {
-      Authorization: `Bearer ${this.getAccessToken()}`
+      Authorization: `Bearer ${accessToken}`
     };
     let userId = undefined;
     let playlistId = undefined;
