@@ -10,7 +10,16 @@ class App extends React.Component {
     this.state = {
       searchResults: [],
       playlistName: 'My playlist',
-      playlistTracks: []
+      playlistTracks: [
+       { name:'ori',
+        artist:'man',
+        album: 'oriman'
+      },
+      { name:'danny ',
+        artist:'rothschild',
+        album: 'dannyrothschild'
+      }
+      ]
     }
 
     this.addTrack = this.addTrack.bind(this);
@@ -78,7 +87,7 @@ savePlaylist(){
       <div className="App-playlist">
       <SearchResults searchResults ={this.state.searchResults} 
         onAdd={this.addTrack}
-       />
+        onRemove={this.removeTrack}/>
         <Playlist title={this.state.playlistName} 
         tracks={this.state.playlistTracks} 
         onAdd={this.addTrack}
