@@ -9,27 +9,12 @@ export default class TodoCreate extends React.Component {
         this.state = {
             error: null
         };
+        this.handleCreate=this.handleCreate.bind(this);
     }
 
     renderError() {
         if (!this.state.error) { return null; }
         return <p style={{ padding: '5px 10px', background: '#d9534f', color: '#fff' }}>{ this.state.error }</p>;
-    }
-
-    render() {
-        return (
-            <form className="create form-horizontal" onSubmit={this.handleCreate.bind(this) }>
-                <div className="form-group">
-                    <div className="col-md-10">
-                        <input className="form-control" type="text" ref="createInput" placeholder="What needs to be done?" />
-                    </div>
-                    <div className="col-md-2 text-right">
-                        <button type="submit" className="btn btn-default">Create</button>
-                    </div>
-                </div>
-                { this.renderError() }
-            </form>
-        )
     }
 
     componentDidMount() {
@@ -49,19 +34,37 @@ export default class TodoCreate extends React.Component {
         }
 
         this.setState({ error: null });
+        //todo no more then 10 tasks
         this.props.createTask(task);
         this.refs.createInput.value = '';
     }
-
-    // 校验输入的任务是否为空或者重复
 
     validateInput(task) {
         if (!task) {
             return 'Please enter a task!';
         } else if (_.find(this.props.todos, todo => todo.task === task)) {
             return 'Task already exist!';
+        }else if(_.size(this.props.todos) >= 10){
+            return 'Cannot create more then 10 tasks! finish or delete previous ones';
         } else {
             return null;
         }
     }
+
+    render() {
+        return (
+            <form className="create form-horizontal" onSubmit={this.handleCreate}>
+                <div className="form-group">
+                    <div className="col-md-10">
+                        <input className="form-control" type="text" ref="createInput" placeholder="What needs to be done?" />
+                    </div>
+                    <div className="col-md-2 text-right">
+                        <button type="submit" className="btn btn-default">Create</button>
+                    </div>
+                </div>
+                { this.renderError() }
+            </form>
+        )
+    }
+
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Checkbox } from 'semantic-ui-react'
 export default class TodoListItem extends React.Component {
 
     constructor(props) {
@@ -9,8 +9,6 @@ export default class TodoListItem extends React.Component {
             isEditing: false
         };
     }
-
-    // 渲染任务内容
 
     renderTaskSection() {
         const { task, isCompleted } = this.props;
@@ -33,11 +31,10 @@ export default class TodoListItem extends React.Component {
         return (
             <label className="col-md-7 text-left text" style={ taskStyle } onClick={this.props.toggleTask.bind(this, task) }>
                 {task}
+                <Checkbox toggle={this.props.toggleTask.bind(this)}>checked </Checkbox>
             </label>
         )
     }
-
-    // 渲染状态显示
 
     renderStateSection() {
         const { isCompleted } = this.props;
@@ -45,19 +42,17 @@ export default class TodoListItem extends React.Component {
         if (isCompleted) {
             return (
                 <div className="col-md-2 text-right">
-                    <span className="label label-success">done</span>
+                    <span className="label label-success"> Completed at {this.props.todos}</span>
                 </div>
             )
         }
 
         return (
             <div className="col-md-2 text-right">
-                <span className="label label-danger">undone</span>
+                <span className="label label-danger"></span>
             </div>
         )
     }
-
-    // 渲染任务功能操作
 
     renderActionSection() {
         if (this.state.isEditing) {
@@ -89,28 +84,20 @@ export default class TodoListItem extends React.Component {
         )
     }
 
-    // 开启编辑后表单获取焦点
-
     componentDidUpdate() {
         if (this.state.isEditing) {
             this.refs.editInput.focus();
         }
     }
 
-    // 开启编辑状态
-
     onEditClick() {
         this.setState({ isEditing: true });
         // this.refs.editInput.getDOMNode().focus();
     }
 
-    // 取消编辑状态
-
     onCancelClick() {
         this.setState({ isEditing: false });
     }
-
-    // 保存编辑
 
     onSaveClick(event) {
         event.preventDefault();

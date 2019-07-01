@@ -2,12 +2,17 @@ import React from 'react';
 import _ from 'lodash';
 import TodoCreate from './todo-create';
 import TodoList from './todo-list';
+import 'semantic-ui-css/semantic.min.css';
+import { Checkbox } from 'semantic-ui-react'
 
 
-const todos = [
+/*const todos = [
     {
         task: 'Make a React tutorial.',
-        isCompleted: false
+        isCompleted: false,
+        creationDate:new Date(),
+        updateDate:
+
     },
     {
         task: 'Go to watch a movie with my girlfriend.',
@@ -17,7 +22,7 @@ const todos = [
         task: 'Go to joes.',
         isCompleted: false
     }
-];
+];*/
 
 export default class App extends React.Component {
 
@@ -25,7 +30,7 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-            todos: todos
+           todos : []
         }
         this.createTask = this.createTask.bind(this);
         this.saveTask = this.saveTask.bind(this);
@@ -36,7 +41,9 @@ export default class App extends React.Component {
     createTask(task) {
         this.state.todos.push({
             task,
-            isCompleted: false
+            isCompleted: false,
+            creationDate:new Date(),
+            updateDate:new Date()
         });
         this.setState({ todos: this.state.todos });
     }
@@ -61,11 +68,11 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>React Todo-list</h1>
+                <h1>ls-tech Todo-list</h1>
                 <div className="td-list-con">
 
                     <TodoCreate
-                        todos={ this.state.todos}
+                        todos={this.state.todos}
                         createTask={ this.createTask}
                         />
 
