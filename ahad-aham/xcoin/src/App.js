@@ -25,6 +25,8 @@ class App extends Component {
   componentDidMount(){
     this.fetchRates();
   }
+
+  
   componentDidUpdate(prevProps, prevState){
     if( this.state.toCoin && this.state.fromCoin &&
         ( (this.state.fromCoin !== prevState.fromCoin ) ||
