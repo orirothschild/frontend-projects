@@ -42,8 +42,8 @@ export default class App extends React.Component {
         this.state.todos.push({
             task,
             isCompleted: false,
-            creationDate:new Date(),
-            updateDate:new Date()
+            creationDate:new Date().toLocaleTimeString(),
+            updateDate:new Date().toLocaleTimeString()
         });
         this.setState({ todos: this.state.todos });
     }

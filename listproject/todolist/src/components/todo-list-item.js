@@ -1,5 +1,6 @@
 import React from 'react';
 import { Checkbox } from 'semantic-ui-react'
+import './todo.css'
 export default class TodoListItem extends React.Component {
 
     constructor(props) {
@@ -31,7 +32,8 @@ export default class TodoListItem extends React.Component {
         return (
             <label className="col-md-7 text-left text" style={ taskStyle } onClick={this.props.toggleTask.bind(this, task) }>
                 {task}
-                <Checkbox toggle={this.props.toggleTask.bind(this)}>checked </Checkbox>
+                <div></div>
+                <Checkbox className='itembox' toggle={this.props.toggleTask.bind(this)}>checked </Checkbox>
             </label>
         )
     }
@@ -42,14 +44,14 @@ export default class TodoListItem extends React.Component {
         if (isCompleted) {
             return (
                 <div className="col-md-2 text-right">
-                    <span className="label label-success"> Completed at {this.props.todos}</span>
+                    <span className="label label-success"> Completed at {this.props.todos.updateDate}</span>
                 </div>
             )
         }
 
         return (
             <div className="col-md-2 text-right">
-                <span className="label label-danger"></span>
+                <span className="label label-danger">last updated at  {this.props.todos.creationDate} </span>
             </div>
         )
     }
