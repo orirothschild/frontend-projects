@@ -32,7 +32,7 @@ export default class TodoListItem extends React.Component {
 
         return (
             <label className="col-md-7 text-left text" style={ taskStyle } onClick={this.props.toggleTask.bind(this, task) }>
-                {task}
+                 <Message icon='inbox' header={task} content={this.renderStateSection()} content={this.renderActionSection()}/>
                 <div></div>
                 <Checkbox className='itembox' toggle={this.props.toggleTask.bind(this)}>checked </Checkbox>
             </label>
@@ -43,18 +43,10 @@ export default class TodoListItem extends React.Component {
         const { isCompleted } = this.props;
 
         if (isCompleted) {
-            return (
-                <div className="col-md-2 text-right">
-                    <Message className="label label-success"> Completed at {this.props.todos.updateDate}</Message>
-                </div>
-            )
+            return `Completed at ${this.props.todos.updateDate}`
         }
 
-        return (
-            <div className="col-md-2 text-right">
-                <Message className="label label-danger">created at {this.props.todos.creationDate}</Message>
-            </div>
-        )
+        return `created at ${this.props.todos.creationDate}`
     }
 
     renderActionSection() {
@@ -81,7 +73,6 @@ export default class TodoListItem extends React.Component {
         return (
             <div className="form-group">
                 { this.renderTaskSection() }
-                { this.renderStateSection() }
                 { this.renderActionSection() }
             </div>
         )

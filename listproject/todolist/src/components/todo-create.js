@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import './todo.css'
-
+import { Button } from 'semantic-ui-react';
 export default class TodoCreate extends React.Component {
 
     constructor(props) {
@@ -60,7 +60,7 @@ export default class TodoCreate extends React.Component {
                         <input className="form-control" type="text" ref="createInput" placeholder="What needs to be done?" />
                     </div>
                     <div className="col-md-2 text-right">
-                        <button type="submit" className="btn btn-default">Create</button>
+                        <Button color='green' type="submit" className="btn btn-default">Create</Button>
                     </div>
                 </div>
                 { this.renderError() }
