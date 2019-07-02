@@ -5,7 +5,7 @@ export default class TodoCount extends React.Component {
 
     renderTasksCount() {
         const tasksCount =  _.size(this.props.todos);
-        return tasksCount == 1 ? '1 task:' : (tasksCount + ' tasks:');
+        return tasksCount === 1 ? '1 task:' : (tasksCount + ' tasks:');
     }
 
     render(){

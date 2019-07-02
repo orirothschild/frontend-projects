@@ -4,26 +4,29 @@ import TodoCreate from './todo-create';
 import TodoList from './todo-list';
 import 'semantic-ui-css/semantic.min.css';
 import { Header } from 'semantic-ui-react';
+import {decorate, observable} from "mobx"
+import {observer} from "mobx-react"
 
+class todos{
 
-
-/*const todos = [
+    @observable todo =[
     {
         task: 'Make a React tutorial.',
         isCompleted: false,
-        creationDate:new Date(),
-        updateDate:
-
+        creationDate:new Date().toLocaleTimeString() + new Date().toLocaleDateString(),
     },
     {
         task: 'Go to watch a movie with my girlfriend.',
-        isCompleted: false
+        isCompleted: false,
+        creationDate:new Date().toLocaleTimeString() + new Date().toLocaleDateString(),
     },
     {
         task: 'Go to joes.',
-        isCompleted: false
+        isCompleted: false,
+        creationDate:new Date().toLocaleTimeString() + new Date().toLocaleDateString(),
     }
-];*/
+    ];
+}
 
 export default class App extends React.Component {
 
@@ -31,8 +34,9 @@ export default class App extends React.Component {
         super(props);
 
         this.state = {
-           todos : []
+           todos : todos
         }
+
         this.createTask = this.createTask.bind(this);
         this.saveTask = this.saveTask.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
@@ -64,17 +68,17 @@ export default class App extends React.Component {
     toggleTask(task) {
         const foundTodo = _.find(this.state.todos, todo => todo.task === task);
         foundTodo.isCompleted = !foundTodo.isCompleted;
-        foundTodo.updateDate = new Date().toLocaleTimeString() +  new Date().toLocaleDateString();
+        foundTodo.updateDate = new Date().toLocaleTimeString() + '' + new Date().toLocaleDateString();
         this.setState({ todos: this.state.todos });
     }
 
     render() {
         return (
             <div>
-                <div class="wrap">
-                <div class="header">
-                    <Header as="h2">ls-tech Todo-list</Header></div>
-		              <div class="wrap-list">
+                <div className="wrap">
+                <div className="header">
+                    <Header as="h2" className="headerclass">ls-tech Todo-list</Header></div>
+		              <div className="wrap-list">
 
                 <div className="td-list-con">
 

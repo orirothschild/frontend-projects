@@ -31,10 +31,10 @@ export default class TodoListItem extends React.Component {
         }
 
         return (
-            <label className="col-md-7 text-left text" style={ taskStyle } onClick={this.props.toggleTask.bind(this, task) }>
-                 <Message icon='inbox' header={task} content={this.renderStateSection()} content={this.renderActionSection()}/>
-                <div></div>
-                <Checkbox className='itembox' toggle={this.props.toggleTask.bind(this)}>checked </Checkbox>
+            <label className="col-md-7 text-left text" style={ taskStyle }>
+                 <Message icon='inbox' header={task} style={ taskStyle } content={this.renderStateSection()}/>
+                <Checkbox className='itembox' toggle onClick={this.props.toggleTask.bind(this, task)}></Checkbox>
+                {this.renderActionSection()}
             </label>
         )
     }
@@ -73,7 +73,6 @@ export default class TodoListItem extends React.Component {
         return (
             <div className="form-group">
                 { this.renderTaskSection() }
-                { this.renderActionSection() }
             </div>
         )
     }

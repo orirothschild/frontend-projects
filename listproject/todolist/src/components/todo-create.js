@@ -45,8 +45,8 @@ export default class TodoCreate extends React.Component {
             return 'Please enter a task!';
         } else if (_.find(this.props.todos, todo => todo.task === task)) {
             return 'Task already exist!';
-        }else if(_.size(this.props.todos) >= 10){
-            return 'Cannot create more then 10 tasks! finish or delete previous ones';
+        }else if(_.size(this.props.todos) >= 5){
+            return 'Cannot create more then 5 tasks! finish or delete previous ones';
         } else {
             return null;
         }
