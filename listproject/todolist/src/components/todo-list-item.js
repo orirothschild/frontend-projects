@@ -1,6 +1,7 @@
 import React from 'react';
-import { Checkbox } from 'semantic-ui-react'
+import { Checkbox, Message } from 'semantic-ui-react'
 import './todo.css'
+import { Button } from 'semantic-ui-react';
 export default class TodoListItem extends React.Component {
 
     constructor(props) {
@@ -44,14 +45,14 @@ export default class TodoListItem extends React.Component {
         if (isCompleted) {
             return (
                 <div className="col-md-2 text-right">
-                    <span className="label label-success"> Completed at {this.props.todos.updateDate}</span>
+                    <Message className="label label-success"> Completed at {this.props.todos.updateDate}</Message>
                 </div>
             )
         }
 
         return (
             <div className="col-md-2 text-right">
-                <span className="label label-danger">last updated at  {this.props.todos.creationDate} </span>
+                <Message className="label label-danger">created at {this.props.todos.creationDate}</Message>
             </div>
         )
     }
@@ -60,18 +61,18 @@ export default class TodoListItem extends React.Component {
         if (this.state.isEditing) {
             return (
                 <div className="col-md-3 text-right">
-                    <button className="btn btn-primary btn-xs" onClick={this.onSaveClick.bind(this) }>Save</button>
+                    <Button circular className="btn btn-primary btn-xs" onClick={this.onSaveClick.bind(this) }>Save</Button>
                     &nbsp; &nbsp; &nbsp;
-                    <button className="btn btn-primary btn-xs" onClick={this.onCancelClick.bind(this) }>Cancel</button>
+                    <Button circular className="btn btn-primary btn-xs" onClick={this.onCancelClick.bind(this) }>Cancel</Button>
                 </div>
             )
         }
 
         return (
             <div className="col-md-3 text-right">
-                <button className="btn btn-primary btn-xs" onClick={this.onEditClick.bind(this) }>Edit</button>
+                <Button circular className="btn btn-primary btn-xs" onClick={this.onEditClick.bind(this) }>Edit</Button>
                 &nbsp; &nbsp; &nbsp;
-                <button className="btn btn-primary btn-xs" onClick={this.props.deleteTask.bind(this, this.props.task) }>Delete</button>
+                <Button circular className="btn btn-primary btn-xs" onClick={this.props.deleteTask.bind(this, this.props.task) }>Delete</Button>
             </div>
         )
     }

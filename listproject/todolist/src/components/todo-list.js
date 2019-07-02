@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import './todo.css'
 import TodoCount from './todo-count';
 import TodoListItem from './todo-list-item';
 
@@ -13,7 +14,8 @@ export default class TodoList extends React.Component {
     render() {
         return (
             <div className="list form-horizontal">
-                <TodoCount todos={ this.props.todos }/>
+                
+                <TodoCount className ='wrap' todos={ this.props.todos }/>
                 { this.renderTodoItems() }
             </div>
         )

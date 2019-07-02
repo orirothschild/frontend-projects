@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import './todo.css'
 
 export default class TodoCreate extends React.Component {
 

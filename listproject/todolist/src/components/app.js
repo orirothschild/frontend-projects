@@ -3,7 +3,8 @@ import _ from 'lodash';
 import TodoCreate from './todo-create';
 import TodoList from './todo-list';
 import 'semantic-ui-css/semantic.min.css';
-import { Checkbox } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react';
+
 
 
 /*const todos = [
@@ -42,8 +43,8 @@ export default class App extends React.Component {
         this.state.todos.push({
             task,
             isCompleted: false,
-            creationDate:new Date().toLocaleTimeString(),
-            updateDate:new Date().toLocaleTimeString()
+            creationDate:new Date().toLocaleTimeString() + new Date().toLocaleDateString(),
+            updateDate:new Date().toLocaleTimeString() +  new Date().toLocaleDateString()
         });
         this.setState({ todos: this.state.todos });
     }
@@ -56,19 +57,25 @@ export default class App extends React.Component {
     saveTask(oldTask, newTask) {
         const foundTodo = _.find(this.state.todos, todo => todo.task === oldTask);
         foundTodo.task = newTask;
+        foundTodo.updateDate = new Date().toLocaleTimeString() +  new Date().toLocaleDateString();
         this.setState({ todos: this.state.todos });
     }
     
     toggleTask(task) {
         const foundTodo = _.find(this.state.todos, todo => todo.task === task);
         foundTodo.isCompleted = !foundTodo.isCompleted;
+        foundTodo.updateDate = new Date().toLocaleTimeString() +  new Date().toLocaleDateString();
         this.setState({ todos: this.state.todos });
     }
 
     render() {
         return (
             <div>
-                <h1>ls-tech Todo-list</h1>
+                <div class="wrap">
+                <div class="header">
+                    <Header as="h2">ls-tech Todo-list</Header></div>
+		              <div class="wrap-list">
+
                 <div className="td-list-con">
 
                     <TodoCreate
@@ -82,8 +89,10 @@ export default class App extends React.Component {
                         deleteTask={ this.deleteTask }
                         toggleTask={ this.toggleTask }
                         />
+                   </div>
                 </div>
             </div>
+        </div>
         )
     }
     }
