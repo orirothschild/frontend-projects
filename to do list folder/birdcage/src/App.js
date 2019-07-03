@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
+import _ from 'lodash';
+import TodoCreate from './todo-create';
+import TodoList from './todo-list';
+import { Header } from 'semantic-ui-react';
+import {inject,observer} from 'mobx-react'; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+@inject('todoclass')  
+@observer //forces to re render when the data in store changes
+class App extends Component {
+  constructor(props) {
+    super(props);
+
 }
 
+render() {
+    let {todoclass} = this.props;
+  return (
+      <div>
+          <div className="wrap">
+          <div className="header">
+              <Header as="h2" className="headerclass">ls-tech Todo-list </Header></div>
+            <div className="wrap-list">
+
+          <div className="td-list-con">
+              <TodoCreate
+                  todos={todoclass.todos}
+                  createTask={ todoclass.createTask}
+                  />
+
+              <TodoList
+                  todos={ todoclass.todos }
+                  saveTask={ todoclass.saveTask }
+                  deleteTask={ todoclass.deleteTask }
+                  toggleTask={ todoclass.toggleTask }
+                  count={todoclass.renderTasksCount}
+                  />
+             </div>
+          </div>
+      </div>
+  </div>
+  )
+}
+}
 export default App;
