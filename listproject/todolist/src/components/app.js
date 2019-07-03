@@ -7,9 +7,7 @@ import { Header } from 'semantic-ui-react';
 import {decorate, observable} from "mobx"
 import {observer} from "mobx-react"
 
-class todos{
-
-    @observable todo =[
+const todos = [
     {
         task: 'Make a React tutorial.',
         isCompleted: false,
@@ -25,8 +23,7 @@ class todos{
         isCompleted: false,
         creationDate:new Date().toLocaleTimeString() + new Date().toLocaleDateString(),
     }
-    ];
-}
+];
 
 export default class App extends React.Component {
 
