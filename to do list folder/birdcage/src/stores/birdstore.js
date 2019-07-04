@@ -31,7 +31,7 @@ class todoList {
 }
 
 @computed get renderTasksCount() {
-    const tasksCount =  _.size(this.todos);
+    let tasksCount =  _.size(this.todos);
     return tasksCount === 1 ? '1 task:' : (tasksCount + ' tasks:');
 }
 

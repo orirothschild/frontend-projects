@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
+import _ from 'lodash';
+import { Header } from 'semantic-ui-react';
+import {inject,observer} from 'mobx-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+@inject('devices')  
+@observer //forces to re render when the data in store changes
+class App extends Component {
+  constructor(props) {
+    super(props);
+
 }
 
+render() {
+    let {devices} = this.props;
+  return (
+      <div>
+          <div className="wrap">
+          <div className="header">
+              <Header as="h4" className="headerclass"> 1.Select blackbox </Header></div>
+            <div className="wrap-list">
+
+          <div className="td-list-con">
+             </div>
+          </div>
+      </div>
+  </div>
+  )
+}
+}
 export default App;
