@@ -51,6 +51,8 @@
     "react-checkbox-tree": "^1.5.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
+    "react-icons": "3.7.0",
+    "react-scripts": "3.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semantic-ui-css": "^2.4.1",
@@ -144,6 +146,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.4.4"
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0"
   }
 }

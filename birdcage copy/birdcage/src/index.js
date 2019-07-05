@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'mobx-react';
 import  storelist from './stores/birdstore';
+
 const Root = (
     <Provider todoclass={storelist}>
         <App/>
