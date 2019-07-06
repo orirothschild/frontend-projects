@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Input, Message } from "semantic-ui-react";
+import { Input, Message, Container , Header } from "semantic-ui-react";
 import CheckboxTree from "react-checkbox-tree";
 import "./style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -126,8 +126,16 @@ class App extends Component {
     return (
       <div>
       <i class="fas fa-archway"></i>
+      <Container fluid>
+      <Header as='h2'>checked boxes summery</Header>
+      <p>
+       {this.state.checked.join('  ')}
+      </p>
+      <p>
+        total boxes checked {this.state.checked.length}
+      </p>
 
-
+    </Container>
       <h1 className="rct-icon-half-check2">Select devices</h1>
         <Input
           style={{ marginBottom: "20px" }}
@@ -168,6 +176,7 @@ class App extends Component {
           }}
           showNodeIcon={false}
         />
+        
          <h1 className="rct-icon-half-check2">Select Time Period</h1>
         <Input
           style={{ marginBottom: "20px"}}
