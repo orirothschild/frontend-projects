@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Input, Message, Container , Header } from "semantic-ui-react";
+import { Input, Message, Container , Header,Button } from "semantic-ui-react";
 import CheckboxTree from "react-checkbox-tree";
 import "./style.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -134,7 +134,7 @@ class App extends Component {
       <p>
         total boxes checked {this.state.checked.length}
       </p>
-
+      
     </Container>
       <h1 className="rct-icon-half-check2">Select devices</h1>
         <Input
@@ -147,6 +147,7 @@ class App extends Component {
             this.onSearchInputChange(event, data, searchedNodes);
           }}
         />
+      
         <CheckboxTree 
            icons={{
             check: <FontAwesomeIcon className="rct-icon rct-icon-check" icon="check-square" />,
@@ -176,7 +177,6 @@ class App extends Component {
           }}
           showNodeIcon={false}
         />
-        
          <h1 className="rct-icon-half-check2">Select Time Period</h1>
         <Input
           style={{ marginBottom: "20px"}}

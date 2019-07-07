@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './Components/App/App';
 import 'semantic-ui-css/semantic.min.css';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'mobx-react';
-import  storelist from './stores/birdstore';
+import  storelist from './Components/stores/birdstore';
+import 'react-mobile-devices/dist/style.css';
+import { Nexus } from 'react-mobile-devices';
 const Root = (
     <Provider todoclass={storelist}>
         <App/>

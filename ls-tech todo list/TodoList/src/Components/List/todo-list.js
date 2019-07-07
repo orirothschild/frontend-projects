@@ -1,8 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 import './todo.css'
-import TodoCount from './todo-count';
-import TodoListItem from './todo-list-item';
+import TodoCount from '../Counter/todo-count'
+import TodoListItem from '../Item/todo-list-item';
 import {observer} from 'mobx-react'; 
 
 @observer //forces to 

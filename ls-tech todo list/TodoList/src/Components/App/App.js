@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import './App.css';
+import './todo.css'
 import _ from 'lodash';
-import TodoCreate from './todo-create';
-import TodoList from './todo-list';
+import TodoCreate from '../List/todo-create';
+import TodoList from '../List/todo-list';
 import { Header } from 'semantic-ui-react';
 import {inject,observer} from 'mobx-react'; 
 

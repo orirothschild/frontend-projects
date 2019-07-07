@@ -138,26 +138,6 @@ const nodesData = [
       ]
     }]
 
-    const times = [
-      {
-        value: "Times",
-        label: "Times",
-        children: [
-           {
-            value: "Last Hour",
-            label: "Last Hour"
-          },
-           {
-            value: "Last 8 hours",
-            label: "Last 8 hours"
-          },
-           {
-            value: "Last 24 Hours",
-            label: "Last 24 Hours"
-          }]
-        }]
-          
-
     const everything =[
 
       {
@@ -305,6 +285,10 @@ const nodesData = [
             label: "Last 24 Hours"
           }]
         }]
+
+        const devices = everything.filter(element => element.value === "Groups") 
+        const times = everything.filter(element => element.value === "Times")
+        const protocols = everything.filter(element => element.value === "protocol")
    
 /*
 class App extends Component {
@@ -463,4 +447,5 @@ class App extends Component {
   }
 }
 */
-render(<App nodesData={everything} times={times} protocols={protocols} />, document.getElementById('root'));
+
+render(<App nodesData={devices} times={times} protocols={protocols} />, document.getElementById('root'));
