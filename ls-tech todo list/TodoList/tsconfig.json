@@ -8,7 +8,7 @@
       "sourceMap": true,
       "allowJs": true,
       "jsx": "react",
-      "moduleResolution": "node",
+      "moduleResolution": "node"
     },
     "exclude": [
       "node_modules",
@@ -22,4 +22,4 @@
     "types": [
       "typePatches"
     ]
-  }
+}
