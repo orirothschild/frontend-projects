@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import _ from 'lodash';
 import {observer} from 'mobx-react'; 
 @observer
 
-class TodoCount extends React.Component {
+class TodoCount extends React.Component <{className: string, todos:any}>{
 
     renderTasksCount() {
         const tasksCount =  _.size(this.props.todos);

@@ -1,19 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import _ from 'lodash';
 import './todo.css'
 import { Button } from 'semantic-ui-react';
 import {observer} from 'mobx-react'; 
 @observer
- class TodoCreate extends React.Component {
-
+ class TodoCreate extends React.Component<{todos: any , createTask: any}, {error: any }> {
+    refs: { [string: string]: any; stepInput:any; };
     constructor(props) {
         super(props);
-
+        
         this.state = {
             error: null
         };
         this.handleCreate=this.handleCreate.bind(this);
     }
+    
 
     renderError() {
         if (!this.state.error) { return null; }

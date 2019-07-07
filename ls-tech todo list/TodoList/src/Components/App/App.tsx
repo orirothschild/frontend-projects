@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import * as React from 'react';
 import './App.css';
 import './todo.css'
 import _ from 'lodash';
@@ -9,14 +9,14 @@ import {inject,observer} from 'mobx-react';
 
 @inject('todoclass')  
 @observer //forces to re render when the data in store changes
-class App extends Component {
+class App extends React.Component<{todoclass: any}> {
   constructor(props) {
     super(props);
 
 }
 
 render() {
-    let {todoclass} = this.props;
+    let {todoclass}= this.props;
   return (
       <div>
           <div className="wrap">

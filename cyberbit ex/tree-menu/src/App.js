@@ -76,6 +76,11 @@ class App extends Component {
     return newNodes;
   };
 
+  sumvalues = (nodes,addedValue) => {
+    let requestedArray = nodes.filter(element => element.value === addedValue);
+    return requestedArray.checked;
+  }
+
   getAllValuesFromNodes = (nodes, firstLevel) => {
     if (firstLevel) {
       const values = [];
@@ -133,7 +138,9 @@ class App extends Component {
       </p>
       <p>
         total boxes checked {this.state.checked.length}
+         <p> time value {this.sumvalues(searchedNodes,"Times")}</p>
       </p>
+     
       
     </Container>
       <h1 className="rct-icon-half-check2">Select devices</h1>
