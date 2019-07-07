@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { Checkbox, Message } from 'semantic-ui-react'
 import './todo.css'
 import { Button } from 'semantic-ui-react';
 import {observer} from 'mobx-react'; 
 @observer
- class TodoListItem extends React.Component {
-
+ class TodoListItem extends React.Component <{todos: any, task:any, isCompleted:boolean,saveTask :Function ,toggleTask:Function,deleteTask:Function},{isEditing: boolean}>{
+    refs: { [string: string]: any; stepInput:any; };
     constructor(props) {
         super(props);
 

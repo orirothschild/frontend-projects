@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import _ from 'lodash';
 import './todo.css'
 import TodoCount from '../Counter/todo-count'
@@ -6,7 +6,7 @@ import TodoListItem from '../Item/todo-list-item';
 import {observer} from 'mobx-react'; 
 
 @observer //forces to 
- class TodoList extends React.Component {
+ class TodoList extends React.Component<{todos: any,saveTask:any,deleteTask:any,toggleTask:any,count:any}> {
     
     renderTodoItems() {
         const props = _.omit(this.props, 'todos');
