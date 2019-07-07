@@ -19,10 +19,10 @@ render() {
     let {todoclass}= this.props;
   return (
       <div>
-          <div className="wrap">
-          <div className="header">
+          <div className="ui raised container segment">
+          <div>
               <Header as="h2" className="headerclass">ls-tech Todo-list </Header></div>
-            <div className="wrap-list">
+            <div className="wrap-list ui raised container segment">
 
           <div className="td-list-con">
               <TodoCreate

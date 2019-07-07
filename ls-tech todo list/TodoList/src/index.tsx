@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'mobx-react';
 import  storelist from './Components/stores/birdstore';
 import 'react-mobile-devices/dist/style.css';
-import { Nexus } from 'react-mobile-devices';
 const Root = (
     <Provider todoclass={storelist}>
         <App todoclass={storelist}/>
