@@ -1,26 +1,12 @@
 import React, { Component } from 'react';
 import { Input, Grid, Segment, Radio,Form,Header } from "semantic-ui-react";
 import CheckboxTree from "react-checkbox-tree";
+import './App.css';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 
 import _ from "lodash";
-const style = {
-  h1: {
-    marginTop: '3em',
-  },
-  h2: {
-    margin: '4em 0em 2em',
-  },
-  h3: {
-    marginTop: '2em',
-    padding: '2em 0em',
-  },
-  last: {
-    marginBottom: '300px',
-  },
-}
 
 class App extends Component {
   constructor(props) {
@@ -33,9 +19,8 @@ class App extends Component {
       time:""
     };
   }
-  handleProtocolChange = (e, {value}) =>{
-  this.setState({protocol: value })
-  }
+  handleProtocolChange = (e, {value}) =>this.setState({protocol: value })
+  handleTimeChange =  (e, {value}) =>this.setState({time: value })
 
   onSearchInputChange = (event, data, searchedNodes) => {
     this.setState(prevState => {
@@ -175,6 +160,113 @@ class App extends Component {
 
   }
 
+  renderSummary = () =>{
+    return(
+      <h1 className="rct-icon-half-check2">Summary></h1>
+
+    )
+
+  }
+
+  renderAddedData = (value) =>{
+    if(value === 'protocol'){
+      return (
+       
+           <label className="col-md-7 text-left">
+        <Form className="left">
+          <Form.Field>
+          
+      <h1 className="rct-icon-half-check2">Selected protocol: <b>{this.state.protocol}</b></h1>
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label='Modbus'
+              name='radioGroup'
+              value='Modbus'
+              checked={this.state.protocol === "Modbus"}
+              onChange={this.handleProtocolChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label='DNP-3'
+              name='radioGroup'
+              value='DNP-3'
+              checked={this.state.protocol === "DNP-3"}
+              onChange={this.handleProtocolChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label='IEC104'
+              name='radioGroup'
+              value='IEC104'
+              checked={this.state.protocol === "IEC104"}
+              onChange={this.handleProtocolChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label='MMS'
+              name='radioGroup'
+              value='MMS'
+              checked={this.state.protocol === "MMS"}
+              onChange={this.handleProtocolChange}
+            />
+          </Form.Field>
+          
+        </Form>
+              </label>
+      )
+    }
+    return (
+      <Form>
+      <Form.Field>
+      <h1 className="rct-icon-half-check2">Selected Time: <b>{this.state.time}</b></h1>
+      </Form.Field>
+      <Form.Field>
+        <Radio
+          label='Last 30 minutes'
+          name='radioGroup'
+          value='Last 30 minutes'
+          checked={this.state.time === "Last 30 minutes"}
+          onChange={this.handleTimeChange}
+        />
+      </Form.Field>
+      <Form.Field>
+        <Radio
+          label='Last Hour'
+          name='radioGroup'
+          value='Last Hour'
+          checked={this.state.time === "Last Hour"}
+          onChange={this.handleTimeChange}
+        />
+      </Form.Field>
+      <Form.Field>
+        <Radio
+          label='Last 8 Hours'
+          name='radioGroup'
+          value='Last 8 Hours'
+          checked={this.state.time === "Last 8 Hours"}
+          onChange={this.handleTimeChange}
+        />
+      </Form.Field>
+      <Form.Field>
+        <Radio
+          label='Last 24 Hours'
+          name='radioGroup'
+          value='Last 24 Hours'
+          checked={this.state.time === "Last 24 Hours"}
+          onChange={this.handleTimeChange}
+        />
+      </Form.Field>
+      
+    </Form>
+
+    )
+
+  }
+
   render() {
    
       // <Container fluid>
@@ -190,45 +282,29 @@ class App extends Component {
       <div>
       <i className="fas fa-archway"></i>
     <Grid columns='equal' divided inverted padded>
-    <Grid.Row color='black' textAlign='center'>
+    <Grid.Row color='black'>
       <Grid.Column>
-        <Segment color='black' inverted>
+        <Segment color='black' inverted >
         {this.renderDeviceTreeElements()}
         </Segment>
       </Grid.Column>
-      <Grid.Column>
-      <Segment color='orange' inverted>
-      <Form>
-        <Form.Field>
-        <Header as ='h3'>  Selected value: <b>{this.state.protocol}</b></Header>
-        </Form.Field>
-        <Form.Field>
-          <Radio
-            label='Choose this'
-            name='radioGroup'
-            value= '1'
-            checked={this.state.protocol === "1"}
-            onChange={this.handleProtocolChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <Radio
-            label='Or that'
-            name='radioGroup'
-            value='2'
-            checked={this.state.protocol === "2"}
-            onChange={this.handleProtocolChange}
-          />
-        </Form.Field>
-        
-      </Form>
-      </Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment color='black' inverted>
-          3
+      <Grid.Column color='orange' inverted>
+        <Segment color='orange' inverted>
+        {this.renderAddedData('protocol')}
         </Segment>
-      </Grid.Column>
+        </Grid.Column>
+        <Grid.Column color='olive' inverted>
+        <Segment color='olive' inverted>
+        {this.renderAddedData(null)}
+        </Segment>
+        </Grid.Column>
+        <Grid.Column color='black' inverted>
+        <Segment color='black' inverted>
+        
+        </Segment>
+        </Grid.Column>
+
+     
     </Grid.Row>
   </Grid>
       
