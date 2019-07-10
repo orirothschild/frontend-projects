@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Grid, Segment, Radio,Form,Header } from "semantic-ui-react";
+import { Input, Grid, Segment, Radio,Form,Divider, Button } from "semantic-ui-react";
 import CheckboxTree from "react-checkbox-tree";
 import './App.css';
 
@@ -21,6 +21,12 @@ class App extends Component {
   }
   handleProtocolChange = (e, {value}) =>this.setState({protocol: value })
   handleTimeChange =  (e, {value}) =>this.setState({time: value })
+  clearAll =  () =>this.setState({
+     checked: [],
+    expanded: [],
+    keyword: "",
+    protocol:"",
+    time:"" })
 
   onSearchInputChange = (event, data, searchedNodes) => {
     this.setState(prevState => {
@@ -106,6 +112,11 @@ class App extends Component {
     }
   };
 
+  learningAlert= () =>{
+    let url = `https://api.spotify.com/v1/search?devices=${this.state.checked}&protocols=${this.state.protocol}&time=${this.state.time}`;
+    alert(url);
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state.keyword !== nextState.keyword) {
       return true;
@@ -162,7 +173,16 @@ class App extends Component {
 
   renderSummary = () =>{
     return(
-      <h1 className="rct-icon-half-check2">Summary></h1>
+      <Segment.Group raised color="black">
+      <h1 className="rct-icon-half-check2">Summary</h1>
+    <Segment className="rct-icon-half-check2" color="black">Checked Devices: {this.state.checked.join('             ,               ')}</Segment>
+    <Divider horizontal></Divider>
+    <Segment>Select Time:  {this.state.time}</Segment>
+    <Divider horizontal></Divider>
+    <Segment>Select protocol:  { this.state.protocol}</Segment>
+    <Divider horizontal></Divider>
+    <Segment><Button onClick={this.clearAll} >clear all</Button> <Button onClick={this.learningAlert} >start learining</Button></Segment>
+  </Segment.Group>
 
     )
 
@@ -288,19 +308,19 @@ class App extends Component {
         {this.renderDeviceTreeElements()}
         </Segment>
       </Grid.Column>
-      <Grid.Column color='orange' inverted>
+      <Grid.Column color='orange' >
         <Segment color='orange' inverted>
         {this.renderAddedData('protocol')}
         </Segment>
         </Grid.Column>
-        <Grid.Column color='olive' inverted>
+        <Grid.Column color='olive' >
         <Segment color='olive' inverted>
         {this.renderAddedData(null)}
         </Segment>
         </Grid.Column>
-        <Grid.Column color='black' inverted>
+        <Grid.Column color='black' >
         <Segment color='black' inverted>
-        
+        {this.renderSummary()}
         </Segment>
         </Grid.Column>
 

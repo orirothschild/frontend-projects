@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Input } from "semantic-ui-react";
-import CheckboxTree from "react-checkbox-tree";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 
 import _ from "lodash";
@@ -13,8 +10,8 @@ import _ from "lodash";
 
 const nodesData = [
   {
-    value: "device_group 1",
-    label: "device_group 1",
+    value: "device_group-1",
+    label: "device_group-1",
     children: [
        {
         value: "device-11",
