@@ -6,7 +6,7 @@ import TodoListItem from '../Item/todo-list-item';
 import {observer} from 'mobx-react'; 
 
 @observer //forces to 
- class TodoList extends React.Component<{todos: any,saveTask:any,deleteTask:any,toggleTask:any,count:any}> {
+ class TodoList extends React.Component<{todos: any,saveTask:Function,deleteTask:Function,toggleTask:Function,count:Function}> {
     
     renderTodoItems() {
         const props = _.omit(this.props, 'todos');
