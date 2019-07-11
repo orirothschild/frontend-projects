@@ -188,8 +188,8 @@ class App extends Component {
 
   }
 
-  renderAddedData = (value) =>{
-    if(value === 'protocol'){
+  renderAddedData = (val) =>{
+    if(val === 'protocol'){
       return (
        
            <label className="col-md-7 text-left">
@@ -289,15 +289,7 @@ class App extends Component {
 
   render() {
    
-      // <Container fluid>
-      // <Header as='h2'>checked boxes summery</Header>
-      // <p>
-      //  {this.state.checked.join('  ')}
-      // </p>
-      // <p>
-      //   total boxes checked {this.state.checked.length}
-      //    <p> time value {this.sumvalues(searchedNodes,"Times")}</p>
-      // </p>
+      
     return (
       <div>
       <i className="fas fa-archway"></i>

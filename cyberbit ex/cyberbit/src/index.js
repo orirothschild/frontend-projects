@@ -5,9 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 
-import _ from "lodash";
-
-
 const nodesData = [
   {
     value: "device_group-1",
@@ -112,10 +109,11 @@ const nodesData = [
     ]
   }]
 
-  class addedData {
-  constructor(){
+  class addedData extends React.Component{
+  constructor(props){
+    super(props);
     this.state = {
-        protocols: [ {
+        protocol: [ {
         "id": 1,
         "name": "Modbus"
     },{
@@ -130,7 +128,7 @@ const nodesData = [
     }
     ],
 
-    "times": [ {
+    "time": [ {
         "id": 1,
         "name": "Last 30 minutes"
     },{
@@ -146,16 +144,12 @@ const nodesData = [
     ]
     }
   }
-  handleProtocolChange = (e, { value }) =>{
-    let selectedObject = this.state.protocols.find(val => val.id === value);
-  this.setState({  selectedObject: selectedObject })
-  }
+  handleProtocolChange = (value) =>this.setState({protocol: value })
+  handleTimeChange =  (value) =>this.setState({time: value })
+  
 }
 let extradata = new addedData();
       
 ReactDOM.render(<App nodesData={nodesData} addedData={extradata} />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
