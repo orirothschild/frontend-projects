@@ -175,7 +175,7 @@ class App extends Component {
     return(
       <Segment.Group raised color="black">
       <h1 className="rct-icon-half-check2">Summary</h1>
-    <Segment className="rct-icon-half-check2" color="black">Checked Devices: {this.state.checked.join('             ,               ')}</Segment>
+    <Segment className="rct-icon-half-check2" color="black">Checked Devices: {this.state.checked.join('  , ')}</Segment>
     <Divider horizontal></Divider>
     <Segment>Select Time:  {this.state.time}</Segment>
     <Divider horizontal></Divider>
