@@ -1,28 +1,18 @@
 {
-  "name": "tree-menu-2",
+  "name": "employeelist",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "font-awesome": "4.7.0",
-    "jszip": "^3.2.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-fontawesome": "^1.6.1",
-    "react-radio-buttons": "^1.2.2",
     "react-scripts": "3.0.1",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.87.2"
+    "semantic-ui-react": "^0.87.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "react-scripts": "latest"
   },
   "eslintConfig": {
     "extends": "react-app"
