@@ -12,7 +12,7 @@ class App extends Component{
         employees: [
      
             {
-              avatar: 'https://image.shutterstock.com/z/stock-photo-experienced-businesswoman-reading-publication-via-laptop-computer-making-research-for-planning-1051137005.jpg',
+              avatar: 'https://image.shutterstock.com/image-photo/smiling-black-white-coworkers-looking-600w-648579007.jpg',
               date: 'Joined in 2013',
               header: 'Helen',
               description: 'Primary Contact',
@@ -20,14 +20,14 @@ class App extends Component{
 
             },
             {
-              avatar: '/images/avatar/large/matthew.png',
+              avatar: 'https://image.shutterstock.com/image-photo/smiling-black-white-coworkers-looking-600w-648579007.jpg',
               date: 'Joined in 2013',
               header: 'Matthew',
               description: 'Primary Contact',
               isWorking: false
             },
             {
-              avatar: '/images/avatar/large/molly.png',
+              avatar: 'https://image.shutterstock.com/image-photo/smiling-black-white-coworkers-looking-600w-648579007.jpg',
               date: 'Joined in 2013',
               header: 'Molly',
               description: 'Primary Contact',

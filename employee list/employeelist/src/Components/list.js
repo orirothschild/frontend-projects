@@ -1,7 +1,8 @@
 
 import React, { Component, Fragment } from 'react'
 import _ from 'lodash'
-import { Button, Card, Divider, Image, Placeholder, Reveal  } from 'semantic-ui-react'
+import './list.css'
+import { Button, Card, Divider, Image, Placeholder, Reveal, Segment  } from 'semantic-ui-react'
 
 
 class employeeList extends Component{
@@ -11,7 +12,7 @@ class employeeList extends Component{
         <Fragment>
           <Card.Group doubling itemsPerRow={3} stackable>
               <Card key={employee.header}>
-                <Image src={employee.avatar} />
+                <Image src={employee.avatar} size='small' circular />
                 <Card.Content>
                 <Fragment>
                 <Card.Header>{employee.header}</Card.Header>
@@ -35,7 +36,7 @@ class employeeList extends Component{
   
     listView = () => (
         
-        <Fragment>
+        <Segment>
          <Divider />
         {_.map(this.props.employees,employee =>(
       <Reveal animated='rotate'>
@@ -48,7 +49,7 @@ class employeeList extends Component{
         </Reveal.Content>
       </Reveal>
         ))}
-      </Fragment>
+      </Segment>
     )
 
     render(){

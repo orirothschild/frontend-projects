@@ -35,7 +35,7 @@ render() {
                   saveTask={ todoclass.saveTask }
                   deleteTask={ todoclass.deleteTask }
                   toggleTask={ todoclass.toggleTask }
-                  count={todoclass.renderTasksCount}
+                  count={ todoclass.renderTasksCount }
                   />
              </div>
           </div>
