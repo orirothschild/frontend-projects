@@ -13,7 +13,7 @@ class App extends Component{
   }
   render () {
   return (
-    <List employees={this.props.employees.employees} deleteEmployee={this.props.employees.deleteEmployee}/>
+    <List employees={this.props.employees.employees} finishAdding={this.props.employees.finishAdding} isAdding={this.props.employees.isAdding} toggleAdding={this.props.employees.toggleAdding} deleteEmployee={this.props.employees.deleteEmployee}/>
   );
   }
 }
