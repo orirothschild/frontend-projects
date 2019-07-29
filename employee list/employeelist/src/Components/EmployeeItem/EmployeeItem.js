@@ -22,10 +22,12 @@ import { Button, Card, Image, Reveal, Divider  } from 'semantic-ui-react'
                     </Fragment>
                     </Card.Content>
                     <Card.Content extra>
+                      <Button  primary>
+                        Add
+                      </Button>
                       <Button circular className="btn btn-primary btn-xs" onClick={this.props.deleteEmployee.bind( this, employee)}>Delete</Button>
                     </Card.Content>
                   </Card>
-                  
               </Card.Group>
             </div>
           )

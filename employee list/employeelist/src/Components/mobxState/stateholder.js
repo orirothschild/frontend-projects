@@ -2,7 +2,6 @@ import {observable,action,computed} from 'mobx';
 import _ from 'lodash';
 
 class employeeList{
-  @observable isAdding = false;
     @observable employees =  [
      
             {
@@ -55,9 +54,6 @@ class employeeList{
     let employeeCount =  _.size(this.employees);
     return employeeCount === 1 ? '1 employee:' : (employeeCount + ' employees:');
 }
-
-@action toggleAdding = () => this.isAdding = true;
-@action finishAdding = () => this.isAdding = false;
 }
 
 const employees = new employeeList();
