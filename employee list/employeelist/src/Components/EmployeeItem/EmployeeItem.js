@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {observer} from 'mobx-react'; 
-import { Button, Card, Image, Reveal  } from 'semantic-ui-react'
+import { Button, Card, Image, Reveal, Divider  } from 'semantic-ui-react'
 @observer
 
  class EmployeeItem extends Component{
@@ -9,37 +9,27 @@ import { Button, Card, Image, Reveal  } from 'semantic-ui-react'
         let {employee} = this.props;
         let {index} = this.props;
         return (
-            <Fragment>
-              <Card.Group doubling itemsPerRow={3} stackable>
-                  <Card key={index}>
-                  <Reveal animated='fade'>
-                  <Reveal.Content visible>
-                  <Image src='https://image.shutterstock.com/image-vector/black-abstract-halftone-logo-design-600w-175771670.jpg' size='small'/>
-                  </Reveal.Content>
-                  <Reveal.Content hidden>
-                
-                    
-                <Image src={employee.avatar} size='small' circular />
-                </Reveal.Content>
-                </Reveal>
+          <div className="ui raised container segment">
+              <Card.Group doubling itemsPerRow={3} stackable  >
+              <Card key={index}>
+                <Image src={employee.avatar} size='big' circular />
+                <Divider hidden/>
                     <Card.Content>
                     <Fragment>
                     <Card.Header>{employee.header}</Card.Header>
                     <Card.Meta>{employee.date}</Card.Meta>
                     <Card.Description>{employee.description}</Card.Description>
                     </Fragment>
-                      
                     </Card.Content>
-      
                     <Card.Content extra>
                       <Button  primary>
                         Add
                       </Button>
-                      <Button>Delete</Button>
+                      <Button circular className="btn btn-primary btn-xs" onClick={this.props.deleteEmployee.bind( this, employee)}>Delete</Button>
                     </Card.Content>
                   </Card>
               </Card.Group>
-            </Fragment>
+            </div>
           )
         }
       

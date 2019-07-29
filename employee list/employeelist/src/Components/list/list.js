@@ -7,8 +7,11 @@ import EmployeeItem from '../EmployeeItem/EmployeeItem'
 
 @observer
 class employeeList extends Component{
+  handleCreateNewEmployee(event) {
+    
+}
     render(){
-        return _.map(this.props.employees ,(employee, index) => <EmployeeItem key={index} employee={employee}/>);
+        return _.map(this.props.employees ,(employee, index) => <EmployeeItem key={index} employee={employee} deleteEmployee={this.props.deleteEmployee}/>);
     }
 }
 

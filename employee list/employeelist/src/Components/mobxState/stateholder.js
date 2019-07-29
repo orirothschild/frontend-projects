@@ -33,12 +33,22 @@ class employeeList{
 
 
 @action deleteEmployee  = (employeeToRemove) => {
- _.remove(this.employees, employee => employee.id === employeeToRemove)
+ _.remove(this.employees, employee => employee.header === employeeToRemove.header)
 }
 
 @action changeEmploymentStatus = (employeeId) => {
-    const foundEmployee = _.find(this.employees, employee => employee.id === employeeId)
+    const foundEmployee = _.find(this.employees, employee => employee.header === employeeId)
     foundEmployee.employmentStatus = !foundEmployee.employmentStatus;
+}
+@action addEmployee = (employeeDetails) => {
+    this.employees.push({      
+            avatar: employeeDetails.avatar,
+            date: new Date().toLocaleDateString,
+            header: employeeDetails.header,
+            description: employeeDetails.description,
+            isWorking: employeeDetails.isWorking,
+            Id: this.renderEmployeeCount()
+    })
 }
 @computed get renderEmployeeCount() {
     let employeeCount =  _.size(this.employees);
