@@ -8,12 +8,10 @@ import {inject,observer} from 'mobx-react';
 @inject('employees')  
 @observer //forces to re render when the data in store changes
 class App extends Component{
-  constructor(props) {
-    super(props);
-  }
   render () {
+    let {employees} = this.props;
   return (
-    <List employees={this.props.employees.employees}/>
+    <List employees={employees.employees} handleAdding={employees.handleAdding}  isAdding={employees.isAdding} deleteEmployee={employees.deleteEmployee}/>
   );
   }
 }

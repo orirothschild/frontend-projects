@@ -1,7 +1,7 @@
-import {observable,action,computed} from 'mobx';
-import _ from 'lodash';
+ import {observable,action,computed} from 'mobx';
+ import _ from 'lodash';
 
-class todoList {
+ class todoList {
  @observable todos = [];
 
 
@@ -21,19 +21,19 @@ class todoList {
     foundTodo.updateDate = new Date().toLocaleTimeString() +  new Date().toLocaleDateString();
  }
 
-@action deleteTask = (taskToDelete) => {
+ @action deleteTask = (taskToDelete) => {
     _.remove(this.todos, todo => todo.task === taskToDelete);
-}
-@action toggleTask= (task) => {
+ }
+ @action toggleTask= (task) => {
     const foundTodo = _.find(this.todos, todo => todo.task === task);
     foundTodo.isCompleted = !foundTodo.isCompleted;
     foundTodo.updateDate = new Date().toLocaleTimeString() + '' + new Date().toLocaleDateString();
-}
+ }
 
-@computed get renderTasksCount() {
+ @computed get renderTasksCount() {
     let tasksCount =  _.size(this.todos);
     return tasksCount === 1 ? '1 task:' : (tasksCount + ' tasks:');
-}
+ }
 
 }
 
