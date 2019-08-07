@@ -1,9 +1,8 @@
-
 import React, { Component} from 'react'
 import _ from 'lodash'
 import './list.css'
 import {observer} from 'mobx-react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button,Card } from 'semantic-ui-react';
 import EmployeeItem from '../EmployeeItem/EmployeeItem'
 import { observable, action } from 'mobx';
 const options = [
@@ -37,7 +36,9 @@ class employeeList extends Component{
     render(){
         return(
             <div>
+                 <Card.Group doubling itemsPerRow={6} stackable  >
             {_.map(this.props.employees ,(employee, index) => <EmployeeItem key={index} employee={employee} deleteEmployee={this.props.deleteEmployee} AddEmployee={this.handleCreateNewEmployee}/>)};
+            </Card.Group>
             {!this.props.isAdding && <Button primary onClick={this.handleAdding}>Add</Button>}
             {this.handleCreateNewEmployee()}
             </div>
