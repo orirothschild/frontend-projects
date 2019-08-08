@@ -39,7 +39,7 @@ class employeeList{
               email : 'tamar@gmail.com',
               date: 'Joined in 2010',
               header: 'tamar ohayon',
-              description: 'logistics manager',
+              description: 'logistics',
               isWorking: true,
               Id:3
             },
@@ -58,12 +58,13 @@ class employeeList{
         ]
 
 @action deleteEmployee  = (employeeToRemove) => {
- _.remove(this.employees, employee => employee.header === employeeToRemove.header)
+ _.remove(this.employees, employee => employee.email === employeeToRemove.email)
 }
 
-@action changeEmploymentStatus = (employeeId) => {
-    const foundEmployee = _.find(this.employees, employee => employee.header === employeeId)
-    foundEmployee.employmentStatus = !foundEmployee.employmentStatus;
+@action changeEmploymentStatus = (employee) => {
+    const foundEmployee = _.find(this.employees, emp => emp.email === employee.email)
+    console.log(foundEmployee);
+    foundEmployee.isWorking = !foundEmployee.isWorking;
 }
 @action addEmployee = (employeeDetails) => {
     this.employees.push({      
@@ -74,6 +75,16 @@ class employeeList{
             isWorking: employeeDetails.isWorking,
             Id: this.renderEmployeeCount()
     })
+}
+@action saveEmployee = (employee, newInformation, atField) =>{
+  const foundEmployee = _.find(this.employees,emp => emp.email === employee.email);
+  let keys = Object.keys(foundEmployee);
+  for(let key in keys){
+    if(key === atField){
+      employee.atField = newInformation;
+    }
+
+  }
 }
 @computed get renderEmployeeCount() {
     let employeeCount =  _.size(this.employees);

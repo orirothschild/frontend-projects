@@ -1,9 +1,8 @@
-
 import React, { Component} from 'react'
 import _ from 'lodash'
 import './list.css'
 import {observer} from 'mobx-react';
-import { Form, Button,Card } from 'semantic-ui-react';
+import  { Form, Button, Card, Divider, Segment } from 'semantic-ui-react';
 import EmployeeItem from '../EmployeeItem/EmployeeItem'
 import { observable, action } from 'mobx';
 const options = [
@@ -17,6 +16,7 @@ class employeeList extends Component{
     constructor(props){
         super(props);
         this.handleAdding =this.props.handleAdding.bind(this);
+        
     }
   handleCreateNewEmployee = () => {
       if(this.props.isAdding){
@@ -36,13 +36,19 @@ class employeeList extends Component{
 }
     render(){
         return(
-            <div>
-                 <Card.Group doubling itemsPerRow={6} stackable  >
-            {_.map(this.props.employees ,(employee, index) => <EmployeeItem key={index} employee={employee} deleteEmployee={this.props.deleteEmployee} AddEmployee={this.handleCreateNewEmployee}/>)};
+          <Segment.Group>
+          <Segment></Segment>
+          
+          <Segment>
+                 <Card.Group doubling itemsPerRow={2} stackable  >
+            {_.map(this.props.employees ,(employee, index) => <EmployeeItem key={index} employee={employee} deleteEmployee={this.props.deleteEmployee} AddEmployee={this.handleCreateNewEmployee} fireEmployee={this.props.fireEmployee} editInformation={this.props.editInformation}/>)};
             </Card.Group>
+            <Divider hidden/>
             {!this.props.isAdding && <Button primary onClick={this.handleAdding}>Add</Button>}
             {this.handleCreateNewEmployee()}
-            </div>
+            <Divider hidden/>
+            </Segment>
+            </Segment.Group>
             )
     }
 }
