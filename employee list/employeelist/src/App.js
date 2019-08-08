@@ -11,7 +11,7 @@ class App extends Component{
   render () {
     let {employees} = this.props;
   return (
-    <List employees={employees.employees} handleAdding={employees.handleAdding}  isAdding={employees.isAdding} deleteEmployee={employees.deleteEmployee}/>
+    <List employees={employees.employees} editInformation = {employees.editInformation} handleAdding={employees.handleAdding}  isAdding={employees.isAdding} fireEmployee={employees.changeEmploymentStatus} deleteEmployee={employees.deleteEmployee}/>
   );
   }
 }
