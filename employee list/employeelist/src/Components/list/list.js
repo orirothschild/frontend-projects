@@ -4,7 +4,6 @@ import './list.css'
 import {observer} from 'mobx-react';
 import  { Form, Button, Card, Divider, Segment } from 'semantic-ui-react';
 import EmployeeItem from '../EmployeeItem/EmployeeItem'
-import { observable, action } from 'mobx';
 const options = [
     { key: 'm', text: 'Male', value: 'male' },
     { key: 'f', text: 'Female', value: 'female' },

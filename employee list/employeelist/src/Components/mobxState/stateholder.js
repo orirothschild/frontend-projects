@@ -76,13 +76,14 @@ class employeeList{
             Id: this.renderEmployeeCount()
     })
 }
-@action saveEmployee = (employee, newInformation, atField) =>{
+@action editInformation = (employee, newInformation, atField) =>{
   const foundEmployee = _.find(this.employees,emp => emp.email === employee.email);
   let keys = Object.keys(foundEmployee);
   for(let key in keys){
     if(key === atField){
       employee.atField = newInformation;
     }
+    return;
 
   }
 }

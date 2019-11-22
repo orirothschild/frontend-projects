@@ -38,6 +38,11 @@ import femaleWorker from './female.jpg'
                     />
                     <Card.Description>{employee.description}</Card.Description>
                     </Fragment>
+                    <label className="col-md-7 text-left">
+                    <form onChange={this.onSaveField.bind(this) }>
+                        <input className="form-control input-sm"  defaultValue ='' ref="editInput" type="text"/>
+                    </form>
+                </label>
                     <Divider/>
                     <Card.Header color='green' >{employee.isWorking && this.hired}</Card.Header>
                     <Divider/>
@@ -45,7 +50,7 @@ import femaleWorker from './female.jpg'
                     <Card.Content extra>
                       <Button circular className="btn btn-primary btn-xs" onClick={this.props.deleteEmployee.bind( this, employee)}>Delete</Button>
                       <Button circular className="btn btn-primary btn-xs" onClick={this.props.fireEmployee.bind( this, employee)}>Status</Button>
-                      <Button circular className="btn btn-primary btn-xs" onClick={this.props.fireEmployee.bind( this, employee)}>Update</Button>
+                      
                       {/* <Button circular className="btn btn-primary btn-xs" onClick={this.props.editInformation.bind( this, employee)}>edit</Button> */}
                     </Card.Content>
                   </Card>
@@ -53,12 +58,9 @@ import femaleWorker from './female.jpg'
           )
         }
 
-        onSaveField(event) {
-          event.preventDefault();
-  
+        onSaveField(e) {
           const employee = this.props.employee;
-          const newInformation = this.refs.editInput.value;
-          this.props.editInformation(employee, newInformation, employee.header);
+          this.props.editInformation(employee, e.target.value, employee.header);
       }
       
 }
